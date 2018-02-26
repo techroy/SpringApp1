@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="textproducer" class="com.app1.beans.TextMessageProducer"></bean>
+
+	<bean id="htmlproducer" class="com.app1.beans.HtmlMessageProducer"></bean>
+
+	<bean id="msgwriter" class="com.app1.beans.MessageWriter">
+
+		<!-- <property name="iMessageProducer" ref="textproducer" /> -->
+
+		<!-- <constructor-arg ref="textproducer"/> -->
+
+
+	</bean>
+
+
+	<bean id="person" class="com.app1.beans.Person">
+
+		<!-- <property name="name" value="Max"/> -->
+
+		<!-- <constructor-arg value="Max"></constructor-arg> -->
+	</bean>
+
+	<bean id="std" class="com.app1.beans.Student">
+
+		<!-- <property name="subjects"> <list value-type="java.lang.String"> <value>C++</value> 
+			<value>C</value> <value>java</value> </list> </property> -->
+
+		<constructor-arg>
+
+			<list value-type="java.lang.String">
+				<value>C++</value>
+				<value>C</value>
+				<value>java</value>
+			</list>
+
+		</constructor-arg>
+	</bean>
+	
+	<bean id="course" class="com.app1.beans.Course">
+	
+			<property name="name" value="ComputerScience"/>
+			<property name="faculties">
+			
+					<set value-type="java.lang.String">
+						<value>Max</value>
+						<value>John</value>
+					
+					</set>
+			
+			</property>
+	</bean>
+
+
+
+
+
+
+</beans>
+
+
