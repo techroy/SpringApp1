@@ -4,7 +4,9 @@ import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.core.io.ClassPathResource;
 
+import com.app1.beans.College;
 import com.app1.beans.Course;
+import com.app1.beans.OnlineCourse;
 import com.app1.beans.Person;
 import com.app1.beans.Student;
 
@@ -19,9 +21,17 @@ public class CollectionTest {
 		//System.out.println(student);
 		
 		
-		Course course =beanFactory.getBean("course",Course.class);
+		/*Course course =beanFactory.getBean("cscourse",Course.class);
 		
-		System.out.println(course);
+		System.out.println(course);*/
+		
+		//College college =beanFactory.getBean("college",College.class);
+		
+		//System.out.println(college);
+		
+		OnlineCourse onlineCourse = beanFactory.getBean("onlineCourse",OnlineCourse.class);
+		
+		System.out.println(onlineCourse);
 
 
 	}

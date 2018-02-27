@@ -41,21 +41,88 @@
 
 		</constructor-arg>
 	</bean>
-	
-	<bean id="course" class="com.app1.beans.Course">
-	
-			<property name="name" value="ComputerScience"/>
-			<property name="faculties">
-			
-					<set value-type="java.lang.String">
-						<value>Max</value>
-						<value>John</value>
-					
-					</set>
-			
-			</property>
+
+	<bean id="cscourse" class="com.app1.beans.Course">
+
+		<property name="name" value="ComputerScience" />
+		<property name="faculties">
+
+			<set value-type="java.lang.String">
+				<value>Max</value>
+				<value>John</value>
+
+			</set>
+
+		</property>
 	</bean>
 
+	<bean id="eccourse" class="com.app1.beans.Course">
+
+		<property name="name" value="Electronics" />
+		<property name="faculties">
+
+			<set value-type="java.lang.String">
+				<value>Sam</value>
+				<value>John</value>
+
+			</set>
+
+		</property>
+	</bean>
+
+	<bean id="college" class="com.app1.beans.College">
+		<property name="studentCourseMap">
+
+			<map>
+
+				<entry key="Paul" value-ref="cscourse"></entry>
+				<entry key="Iain" value-ref="eccourse"></entry>
+			</map>
+
+		</property>
+	</bean>
+
+	<bean id="onlineCourse" class="com.app1.beans.OnlineCourse">
+
+		<constructor-arg>
+			<props>
+				<prop key="Max">Iain</prop>
+				<prop key="Sam">John</prop>
+			</props>
+		</constructor-arg>
+	</bean>
+
+
+
+
+
+	<bean id="board" class="com.app1.beans.Board">
+
+		<!-- <property name="school"> <bean id="sch" class="com.app1.beans.School"> 
+			<property name="name" value="KV"></property> </bean> </property> -->
+		<constructor-arg>
+
+			<bean id="sch" class="com.app1.beans.School">
+
+				<property name="name" value="KV"></property>
+			</bean>
+
+
+		</constructor-arg>
+
+	</bean>
+
+
+
+	<bean id="engine1" class="com.app1.beans.Engine" />
+
+	<bean id="car" class="com.app1.beans.Car">
+
+		<property name="engineId">
+			<idref bean="engine1" />
+		</property>
+
+	</bean>
 
 
 
