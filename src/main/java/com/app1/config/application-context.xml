@@ -124,8 +124,43 @@
 
 	</bean>
 
+	<bean id="vehicle" class="com.app1.beans.Vehicle">
+
+		<property name="name" value="Dio" />
+
+	</bean>
+
+	<alias name="vehicle" alias="scooty" />
+	<alias name="vehicle" alias="bike" />
 
 
+
+	<bean id="dependentBean" class="com.app1.beans.DependentBean">
+
+		<property name="name" value="Dpendent bean object"></property>
+	</bean>
+	
+	<!-- <bean id="dependentBean1" class="com.app1.beans.DependentBean">
+
+		<property name="name" value="Dpendent bean 11 object"></property>
+	</bean> -->
+	
+	
+
+	<bean id="target" class="com.app1.beans.TargetBean" autowire="byName"/>
+	
+	<bean id="targetByType" class="com.app1.beans.TargetByTypeBean" autowire="constructor"/>
+	
+	<bean id="a1" class="com.app1.beans.A" >
+			<property name="beanId" ><idref bean="b1"/>
+			
+			</property>
+	</bean>
+	
+	
+	<bean id="b1" class="com.app1.beans.B" scope="prototype"/>
+	
+	<!-- <bean id="a2" class="com.app1.beans.A" scope="singleton" /> -->
 
 
 </beans>
