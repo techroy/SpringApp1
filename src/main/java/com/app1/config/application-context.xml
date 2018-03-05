@@ -161,6 +161,14 @@
 	<bean id="b1" class="com.app1.beans.B" scope="prototype"/>
 	
 	<!-- <bean id="a2" class="com.app1.beans.A" scope="singleton" /> -->
+	
+	<bean id="sensor" class="com.app1.beans.Sensor" />
+	
+	<bean id="robot" class="com.app1.beans.Robot" init-method="start" destroy-method="release">
+	
+		<property name="name" value="ROBO123"/>
+		<constructor-arg ref="sensor"></constructor-arg>
+	</bean>
 
 
 </beans>
