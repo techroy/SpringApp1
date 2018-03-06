@@ -169,6 +169,29 @@
 		<property name="name" value="ROBO123"/>
 		<constructor-arg ref="sensor"></constructor-arg>
 	</bean>
+	
+	<bean id="loan" class="com.app1.beans.LoanCalculator" scope="prototype"/>
+	
+	<bean id="homeloan" class="com.app1.beans.HomeLoan">
+	
+			<lookup-method name="getLoanObject" bean="loan"/>
+	</bean>
+	
+	
+	
+	
+	
+	<bean id="calendarBean" class="com.app1.beans.TimeFactory">
+	
+			<constructor-arg value="2018"/>
+			<constructor-arg value="03"/>
+			<constructor-arg value="06"/>
+	</bean>
+	
+	<bean id="alarm" class="com.app1.beans.Alarm">
+	
+			<property name="calendar" ref="calendarBean"></property>
+	</bean>
 
 
 </beans>
