@@ -139,60 +139,75 @@
 
 		<property name="name" value="Dpendent bean object"></property>
 	</bean>
-	
-	<!-- <bean id="dependentBean1" class="com.app1.beans.DependentBean">
 
-		<property name="name" value="Dpendent bean 11 object"></property>
-	</bean> -->
-	
-	
+	<!-- <bean id="dependentBean1" class="com.app1.beans.DependentBean"> <property 
+		name="name" value="Dpendent bean 11 object"></property> </bean> -->
 
-	<bean id="target" class="com.app1.beans.TargetBean" autowire="byName"/>
-	
-	<bean id="targetByType" class="com.app1.beans.TargetByTypeBean" autowire="constructor"/>
-	
-	<bean id="a1" class="com.app1.beans.A" >
-			<property name="beanId" ><idref bean="b1"/>
-			
-			</property>
+
+
+	<bean id="target" class="com.app1.beans.TargetBean" autowire="byName" />
+
+	<bean id="targetByType" class="com.app1.beans.TargetByTypeBean"
+		autowire="constructor" />
+
+	<bean id="a1" class="com.app1.beans.A">
+		<property name="beanId">
+			<idref bean="b1" />
+
+		</property>
 	</bean>
-	
-	
-	<bean id="b1" class="com.app1.beans.B" scope="prototype"/>
-	
+
+
+	<bean id="b1" class="com.app1.beans.B" scope="prototype" />
+
 	<!-- <bean id="a2" class="com.app1.beans.A" scope="singleton" /> -->
-	
+
 	<bean id="sensor" class="com.app1.beans.Sensor" />
-	
-	<bean id="robot" class="com.app1.beans.Robot" init-method="start" destroy-method="release">
-	
-		<property name="name" value="ROBO123"/>
+
+	<bean id="robot" class="com.app1.beans.Robot" init-method="start"
+		destroy-method="release">
+
+		<property name="name" value="ROBO123" />
 		<constructor-arg ref="sensor"></constructor-arg>
 	</bean>
-	
-	<bean id="loan" class="com.app1.beans.LoanCalculator" scope="prototype"/>
-	
+
+	<bean id="loan" class="com.app1.beans.LoanCalculator" scope="prototype" />
+
 	<bean id="homeloan" class="com.app1.beans.HomeLoan">
-	
-			<lookup-method name="getLoanObject" bean="loan"/>
-	</bean>
-	
-	
-	
-	
-	
-	<bean id="calendarBean" class="com.app1.beans.TimeFactory">
-	
-			<constructor-arg value="2018"/>
-			<constructor-arg value="03"/>
-			<constructor-arg value="06"/>
-	</bean>
-	
-	<bean id="alarm" class="com.app1.beans.Alarm">
-	
-			<property name="calendar" ref="calendarBean"></property>
+
+		<lookup-method name="getLoanObject" bean="loan" />
 	</bean>
 
+
+
+
+
+	<bean id="calendarBean" class="com.app1.beans.TimeFactory">
+
+		<constructor-arg value="2018" />
+		<constructor-arg value="03" />
+		<constructor-arg value="06" />
+	</bean>
+
+	<bean id="alarm" class="com.app1.beans.Alarm">
+
+		<property name="calendar" ref="calendarBean"></property>
+	</bean>
+
+
+	<bean id="dbconfig" class="com.app1.beans.DbConfig">
+
+		<property name="url" value="${dburl}" />
+		<property name="uname" value="${dbuname}" />
+		<property name="pwd" value="${dbpwd}" />
+	</bean>
+
+	<bean id="ppc"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+
+		<property name="location" value="classpath:application.properties"></property>
+
+	</bean>
 
 </beans>
 
